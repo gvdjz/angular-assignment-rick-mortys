@@ -1,0 +1,43 @@
+.container {
+  display: inline-block;
+  position: absolute;
+  margin: 5px;
+}
+.card {
+  margin: 5px;
+}
+
+@media only screen and (min-width:768px) {
+    flex-basis: 20%;
+}
+
+.main {
+  margin: 10px;
+}
+
+img {
+  height: 200px;
+  width: 200px;
+
+}
+.characters {
+  display: flex;
+  flex-flow: wrap;
+}
+
+ul {
+  padding: 0;
+}
+
+li {
+  text-align: right;
+  list-style: none;
+}
+
+.info {
+  float: left;
+}
+
+select {
+  float: right;
+}

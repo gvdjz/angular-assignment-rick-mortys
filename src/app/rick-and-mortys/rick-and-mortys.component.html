@@ -1,0 +1,41 @@
+<div class="container">
+    <div class="filters"> <!--check if filter is selected-->
+      <h2>Selected Filters</h2>
+      <div class="filter">
+        <div>
+          <span class="filter-text">filtered</span>
+          <button ><img src="" alt="close"></button>
+        </div>
+      </div><!--apply for -->
+    </div>
+    <div class="main">
+      <div class="search">
+        Search By Name:<br>
+        <input type="text" name="" id="" class="name">
+        <button class="">Search</button>
+        <select class="sort">
+          <option value="">Ascending</option>
+          <option value="">descending</option>
+        </select>
+      </div>
+      <div class="characters">
+        <div class="card" *ngFor="let char of characters">
+          <div class="image-container">
+            <img src="" alt="Rick">
+            <h3 class="name">{{char.name}}</h3>
+            <span class="id">{{char.id}}</span><br>{{char.created}}
+            <div class="details">
+              <ul>
+                <li><span class="info">status:</span>{{char.status}}</li>
+                <li><span class="info">species:</span>{{char.species}}</li>
+                <li><span class="info">gender:</span>{{char.gender}}</li>
+                <li><span class="info">location:</span>{{char.location}}</li>
+                <li><span class="info">origin:</span>{{char.origin}}</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+</div>
