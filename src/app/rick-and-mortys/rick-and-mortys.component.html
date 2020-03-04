@@ -32,7 +32,7 @@
         <div class="filters" *ngIf="filtersSelected"> <!--check if filter is selected-->
           <h2>Selected Filters</h2>
           <div class="filter">
-              <button *ngFor ="let filter of selectedFilters" value="{{filter}}">{{filter}} <span class="close">x</span></button>
+              <button *ngFor ="let filter of selectedFilters" value="{{filter}}" class="filteredButton">{{filter}} <span class="close">x</span></button>
           </div><!--apply for to access no.of filters selected-->
         </div>
         <div class="main">
@@ -56,11 +56,11 @@
               </div>
               <div class="details">
                   <ul>
-                    <li class="list"><span class="info">status:</span>{{char.status}}</li>
-                    <li class="list"><span class="info">species:</span>{{char.species}}</li>
-                    <li class="list"><span class="info">gender:</span>{{char.gender}}</li>
-                    <li class="list"><span class="info">location:</span>{{char.location.name}}</li>
-                    <li class="list"><span class="info">origin:</span>{{char.origin.name}}</li>
+                    <li class="list"><span class="info">Status:</span>{{char.status}}</li>
+                    <li class="list"><span class="info">Species:</span>{{char.species}}</li>
+                    <li class="list"><span class="info">Gender:</span>{{char.gender}}</li>
+                    <li class="list"><span class="info">Location:</span>{{char.location.name}}</li>
+                    <li class="list"><span class="info">Origin:</span>{{char.origin.name}}</li>
                   </ul>
                 </div>
             </div>
