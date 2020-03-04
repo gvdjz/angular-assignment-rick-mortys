@@ -1,14 +1,81 @@
-.container {
+.component {
+  display: flex;
+  /* flex-direction: column; */
+}
+
+h4{
+  margin: 5px 0;
+}
+
+.select-filters {
   display: inline-block;
-  position: absolute;
   margin: 5px;
+  flex-basis: 10%;
+
+}
+
+@media only screen and (max-width: 768px) {
+  body {
+    background-color: lightblue;
+  }
+}
+
+.species {
+  border: solid 2px;
+  margin: 10px;
+  padding: 5px;
+}
+.gender {
+  border: solid 2px;
+  margin: 10px;
+  padding: 5px;
+}
+
+.origin {
+  border: solid 2px;
+  margin: 10px;
+  padding: 5px;
+}
+
+.close {
+  font-size: 13px;
+}
+
+.filters {
+  margin-left: 10px;
+}
+
+.container {
+  /* position: absolute; */
+  margin: 0;
+  flex-basis: 80%;
 }
 .card {
   margin: 5px;
+  flex-basis: 20%;
+  padding: 5px;
+  /* flex-basis: 40%;
+   padding:5px; */
 }
 
-@media only screen and (min-width:768px) {
+@media (min-width:768px) {
     flex-basis: 20%;
+}
+.image-container {
+  position: relative;
+}
+
+.imageOverlay {
+    position: absolute;
+    bottom: 3px;
+    color: white;
+    background-color: rgba(0,0,0,0.6);
+    width: 100%;
+    padding-left: 5px;
+}
+
+h3{
+  margin: 0;
 }
 
 .main {
@@ -17,7 +84,11 @@
 
 img {
   height: 200px;
-  width: 200px;
+/* height: 150px;
+height: 185px; 1024
+  height: 260px; 1320
+  height: 270px; 768
+ */
 
 }
 .characters {
@@ -27,11 +98,17 @@ img {
 
 ul {
   padding: 0;
+  list-style: none;
 }
 
-li {
+li.list {
   text-align: right;
   list-style: none;
+  border-bottom: solid #000 1px;
+}
+
+li.filter {
+  text-align: left;
 }
 
 .info {

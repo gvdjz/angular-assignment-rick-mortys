@@ -1,41 +1,70 @@
-<div class="container">
-    <div class="filters"> <!--check if filter is selected-->
-      <h2>Selected Filters</h2>
-      <div class="filter">
-        <div>
-          <span class="filter-text">filtered</span>
-          <button ><img src="" alt="close"></button>
+<div class="component">
+    <section class="select-filters">
+        <h2>Filters</h2>
+        <div class="species">
+          <h4>Species</h4>
+          <ul>
+            <li class="filter"><input type="checkbox" name="Human" id="species" (change)="filtered($event.target.name)">Human</li>
+            <li class="filter"><input type="checkbox" name="Alien" id="species" (change)="filtered($event.target.name)">Alien</li>
+            <li class="filter"><input type="checkbox" name="Mythalog" id="species" (change)="filtered($event.target.name)">Mythalog</li>
+          </ul>
         </div>
-      </div><!--apply for -->
-    </div>
-    <div class="main">
-      <div class="search">
-        Search By Name:<br>
-        <input type="text" name="" id="" class="name">
-        <button class="">Search</button>
-        <select class="sort">
-          <option value="">Ascending</option>
-          <option value="">descending</option>
-        </select>
-      </div>
-      <div class="characters">
-        <div class="card" *ngFor="let char of characters">
-          <div class="image-container">
-            <img src="" alt="Rick">
-            <h3 class="name">{{char.name}}</h3>
-            <span class="id">{{char.id}}</span><br>{{char.created}}
-            <div class="details">
+        <div class="gender">
+            <h4>Gender</h4>
+            <ul>
+              <li class="filter"><input type="checkbox" name="Male" id="gender" (change)="filtered($event.target.name)">Male</li>
+              <li class="filter"><input type="checkbox" name="Female" id="gender" (change)="filtered($event.target.name)">Female</li>
+            </ul>
+          </div>
+          <div class="origin">
+              <h4>Origin</h4>
               <ul>
-                <li><span class="info">status:</span>{{char.status}}</li>
-                <li><span class="info">species:</span>{{char.species}}</li>
-                <li><span class="info">gender:</span>{{char.gender}}</li>
-                <li><span class="info">location:</span>{{char.location}}</li>
-                <li><span class="info">origin:</span>{{char.origin}}</li>
+                <li class="filter"><input type="checkbox" name="Earth" id="origin" (change)="filtered($event.target.name)">Earth</li>
+                <li class="filter"><input type="checkbox" name="Abadango" id="origin" (change)="filtered($event.target.name)">Abadango </li>
+                <li class="filter"><input type="checkbox" name="Unknown" id="origin" (change)="filtered($event.target.name)">Unknown</li>
               </ul>
+
+            </div>
+      </section>
+
+
+    <div class="container">
+        <div class="filters" *ngIf="filtersSelected"> <!--check if filter is selected-->
+          <h2>Selected Filters</h2>
+          <div class="filter">
+              <button *ngFor ="let filter of selectedFilters" value="{{filter}}">{{filter}} <span class="close">x</span></button>
+          </div><!--apply for to access no.of filters selected-->
+        </div>
+        <div class="main">
+          <div class="search">
+            Search By Name:<br>
+            <input type="text" name="name" id="name" class="name">
+            <button class="">Search</button>
+            <select class="sort" (change)="characterSortAttr = $event.target.value">
+              <option value="ascending">Ascending</option>
+              <option value="descending">Descending</option>
+            </select>
+          </div>
+          <div class="characters">
+            <div class="card" *ngFor="let char of (characters | sort:characterSortAttr:'id')">
+              <div class="image-container">
+                <img src="{{char.image}}" alt="{{char.name}}">
+                <div class="imageOverlay">
+                    <h3 class="name">{{char.name}}</h3>
+                    <span class="id">id: {{char.id}}</span><br>created at {{char.created | elapsed}}
+                </div>
+              </div>
+              <div class="details">
+                  <ul>
+                    <li class="list"><span class="info">status:</span>{{char.status}}</li>
+                    <li class="list"><span class="info">species:</span>{{char.species}}</li>
+                    <li class="list"><span class="info">gender:</span>{{char.gender}}</li>
+                    <li class="list"><span class="info">location:</span>{{char.location.name}}</li>
+                    <li class="list"><span class="info">origin:</span>{{char.origin.name}}</li>
+                  </ul>
+                </div>
             </div>
           </div>
         </div>
-      </div>
     </div>
-
 </div>
