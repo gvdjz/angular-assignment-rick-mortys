@@ -39,7 +39,7 @@
           <div class="search">
             Search By Name:<br>
             <input type="text" name="name" id="name" class="name">
-            <button class="">Search</button>
+            <button class="searchButton">Search</button>
             <select class="sort" (change)="characterSortAttr = $event.target.value">
               <option value="ascending">Ascending</option>
               <option value="descending">Descending</option>
@@ -50,7 +50,7 @@
               <div class="image-container">
                 <img src="{{char.image}}" alt="{{char.name}}">
                 <div class="imageOverlay">
-                    <h3 class="name">{{char.name}}</h3>
+                    <h3 class="charName">{{char.name}}</h3>
                     <span class="id">id: {{char.id}}</span><br>created at {{char.created | elapsed}}
                 </div>
               </div>

@@ -50,10 +50,30 @@ h4{
   margin: 0;
   flex-basis: 80%;
 }
+
+.name {
+  font-size: 25px;
+}
+
+.searchButton {
+    font-size: 16px;
+    padding: 7.5px 16px;
+    position: absolute;
+}
+
+.characters {
+  display: flex;
+  flex-flow: wrap;
+  background: black;
+  margin: 10px 0;
+}
+
 .card {
   margin: 5px;
   flex-basis: 20%;
-  padding: 5px;
+  background: rgba(109,109,109,.4);
+  border: solid rgba(109,109,109,.4) 2px;
+  border-radius: 10px;
   /* flex-basis: 40%;
    padding:5px; */
 }
@@ -74,6 +94,10 @@ h4{
     padding-left: 5px;
 }
 
+.details {
+  padding: 5px;
+}
+
 h3{
   margin: 0;
 }
@@ -83,17 +107,14 @@ h3{
 }
 
 img {
-  height: 200px;
+  width: 100%;
+  border-radius: 10px 10px 0 0;
 /* height: 150px;
 height: 185px; 1024
   height: 260px; 1320
   height: 270px; 768
  */
 
-}
-.characters {
-  display: flex;
-  flex-flow: wrap;
 }
 
 ul {
@@ -104,7 +125,9 @@ ul {
 li.list {
   text-align: right;
   list-style: none;
-  border-bottom: solid #000 1px;
+  border-bottom: solid #808080 1px;
+  padding: 5px 0;
+  color: orange;
 }
 
 li.filter {
@@ -113,6 +136,7 @@ li.filter {
 
 .info {
   float: left;
+  color: #fff;
 }
 
 select {
