@@ -23,12 +23,12 @@ export class SortPipe implements PipeTransform{
         }
     }
     transform(data : any[], attrName : string,id:string){
-        console.log('sort.transform triggered');
+
         if (!data || !data.length || !attrName) return data;
         let comparer = this.getComparer(id);
         if (attrName === 'descending'){
           comparer = this.getDescendigComparer(comparer);
-          console.log('in desc');
+
         }
 
         data.sort(comparer);

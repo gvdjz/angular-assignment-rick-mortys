@@ -47,7 +47,11 @@ h4{
 }
 
 .filters {
-  margin-left: 10px;
+  margin:5px 0 25px 10px;
+}
+
+h2 {
+  margin-bottom: 5px;
 }
 
 .filteredButton{
@@ -57,12 +61,25 @@ h4{
   border-radius: 5px;
   position: relative;
   margin-right: 10px;
+  background: rgba(109,109,109,.68);
+  color: #fff;
+}
+
+.closeSearch {
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    /* display: none; */
+}
+
+.toggle {
+  display: block;
 }
 
 .container {
   /* position: absolute; */
   margin: 0;
-  flex-basis: 80%;
+  flex-basis: 90%;
 }
 
 .name {
@@ -80,6 +97,7 @@ h4{
   flex-flow: wrap;
   background: black;
   margin: 10px 0;
+  position: relative;
 }
 
 .card {

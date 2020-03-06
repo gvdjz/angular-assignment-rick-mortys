@@ -4,24 +4,24 @@
         <div class="species">
           <h4>Species</h4>
           <ul>
-            <li class="filter"><input type="checkbox" name="Human" id="species" (change)="filtered($event.target.name)">Human</li>
-            <li class="filter"><input type="checkbox" name="Alien" id="species" (change)="filtered($event.target.name)">Alien</li>
-            <li class="filter"><input type="checkbox" name="Mythalog" id="species" (change)="filtered($event.target.name)">Mythalog</li>
+            <li class="filter"><input type="checkbox" name="Human" id="Human" (change)="filtered($event.target.name)">Human</li>
+            <li class="filter"><input type="checkbox" name="Alien" id="Alien" (change)="filtered($event.target.name)">Alien</li>
+            <li class="filter"><input type="checkbox" name="Mythalog" id="Mythalog" (change)="filtered($event.target.name)">Mythalog</li>
           </ul>
         </div>
         <div class="gender">
             <h4>Gender</h4>
             <ul>
-              <li class="filter"><input type="checkbox" name="Male" id="gender" (change)="filtered($event.target.name)">Male</li>
-              <li class="filter"><input type="checkbox" name="Female" id="gender" (change)="filtered($event.target.name)">Female</li>
+              <li class="filter"><input type="checkbox" name="Male" id="Male" (change)="filtered($event.target.name)">Male</li>
+              <li class="filter"><input type="checkbox" name="Female" id="Female" (change)="filtered($event.target.name)">Female</li>
             </ul>
           </div>
           <div class="origin">
               <h4>Origin</h4>
               <ul>
-                <li class="filter"><input type="checkbox" name="Earth" id="origin" (change)="filtered($event.target.name)">Earth</li>
-                <li class="filter"><input type="checkbox" name="Abadango" id="origin" (change)="filtered($event.target.name)">Abadango </li>
-                <li class="filter"><input type="checkbox" name="Unknown" id="origin" (change)="filtered($event.target.name)">Unknown</li>
+                <li class="filter"><input type="checkbox" name="Earth (C-137)" id="Earth" (change)="filtered($event.target.name)">Earth</li>
+                <li class="filter"><input type="checkbox" name="Abadango" id="Abadango" (change)="filtered($event.target.name)">Abadango </li>
+                <li class="filter"><input type="checkbox" name="unknown" id="Unknown" (change)="filtered($event.target.name)">Unknown</li>
               </ul>
 
             </div>
@@ -32,13 +32,14 @@
         <div class="filters" *ngIf="filtersSelected"> <!--check if filter is selected-->
           <h2>Selected Filters</h2>
           <div class="filter">
-              <button *ngFor ="let filter of selectedFilters" value="{{filter}}" class="filteredButton">{{filter}} <span class="close">x</span></button>
+              <button *ngFor ="let filter of selectedFilters" value="{{filter}}" class="filteredButton"
+               (click)="filtered($event.target.value)" title="Click to remove Filter">{{filter}} <span class="close">x</span></button>
           </div><!--apply for to access no.of filters selected-->
         </div>
         <div class="main">
           <div class="search">
             Search By Name:<br>
-            <input type="text" name="name" id="name" class="name">
+            <input type="text" id="name" class="name" (change)="showSearchResults($event.target.value)">
             <button class="searchButton">Search</button>
             <select class="sort" (change)="characterSortAttr = $event.target.value">
               <option value="ascending">Ascending</option>
@@ -46,6 +47,9 @@
             </select>
           </div>
           <div class="characters">
+            <div *ngIf="searchName">
+                <button class="closeSearch" aria-placeholder="Enter the Name" (click)="closeResults()">Close</button>
+            </div>
             <div class="card" *ngFor="let char of (characters | sort:characterSortAttr:'id')">
               <div class="image-container">
                 <img src="{{char.image}}" alt="{{char.name}}">
@@ -56,11 +60,11 @@
               </div>
               <div class="details">
                   <ul>
-                    <li class="list"><span class="info">Status:</span>{{char.status}}</li>
-                    <li class="list"><span class="info">Species:</span>{{char.species}}</li>
-                    <li class="list"><span class="info">Gender:</span>{{char.gender}}</li>
-                    <li class="list"><span class="info">Location:</span>{{char.location.name}}</li>
-                    <li class="list"><span class="info">Origin:</span>{{char.origin.name}}</li>
+                    <li class="list"><span class="info">STATUS: </span>{{char.status}}</li>
+                    <li class="list"><span class="info">SPECIES:</span>{{char.species}}</li>
+                    <li class="list"><span class="info">GENDER:</span>{{char.gender}}</li>
+                    <li class="list"><span class="info">LOCATION:</span>{{char.location.name}}</li>
+                    <li class="list"><span class="info">ORIGIN:</span>{{char.origin.name}}</li>
                   </ul>
                 </div>
             </div>
