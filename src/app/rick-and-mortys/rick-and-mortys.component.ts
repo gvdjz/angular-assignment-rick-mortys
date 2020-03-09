@@ -1,5 +1,4 @@
-import { Component, OnInit, Injectable } from '@angular/core';
-// import { CharacterDetails } from '../rick-and-mortys';
+import { Component, OnInit } from '@angular/core';
 import { Characters } from '../mock-characters';
 import { CharacterDetails } from '../rick-and-mortys';
 
@@ -64,7 +63,7 @@ export class RickAndMortysComponent implements OnInit {
         else
           this.filterCharacters(filter, this.species);
       }
-      else if(filter === 'Earth (C-137)' || filter==='Abadango' || filter==='unknown'){
+      else if(filter === 'Earth' || filter==='Abadango' || filter==='unknown'){
         if(!this.origin){
           this.filterCharacters(filter,this.origin);
           this.origin = !this.origin;
@@ -98,7 +97,7 @@ export class RickAndMortysComponent implements OnInit {
           return character;
       else if(character.species === filter)
               return character;
-            else if(character.origin.name === filter)
+            else if(character.origin.name.includes(filter))
                     return character;
         });
  // console.log(this.result);
